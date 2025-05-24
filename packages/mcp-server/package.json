@@ -8,10 +8,10 @@
   "type": "commonjs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stainless-sdks/doorloop-typescript.git",
+    "url": "git+https://github.com/evolv3ai/doorloop.git",
     "directory": "packages/mcp-server"
   },
-  "homepage": "https://github.com/stainless-sdks/doorloop-typescript/tree/main/packages/mcp-server#readme",
+  "homepage": "https://github.com/evolv3ai/doorloop/tree/main/packages/mcp-server#readme",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "private": false,
