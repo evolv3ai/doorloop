@@ -1,0 +1,103 @@
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import type { Metadata } from '../';
+import Doorloop from 'doorloop';
+
+export const metadata: Metadata = {
+  resource: 'expenses',
+  operation: 'write',
+  tags: [],
+};
+
+export const tool: Tool = {
+  name: 'update_expenses',
+  description: 'Updates an Expense',
+  inputSchema: {
+    type: 'object',
+    properties: {
+      expenseId: {
+        type: 'string',
+      },
+      date: {
+        type: 'string',
+        description: 'Format: YYYY-MM-DD',
+      },
+      lines: {
+        type: 'array',
+        items: {
+          type: 'object',
+          title: 'expenseTransactionLine',
+          properties: {
+            account: {
+              type: 'string',
+              title: 'mongoId',
+            },
+            linkedToResourceId: {
+              type: 'string',
+              description: 'The Property Id for this line.',
+            },
+            linkedToResourceType: {
+              type: 'string',
+              description: 'At the monent, only "property" is supported',
+              enum: ['property'],
+            },
+            id: {
+              type: 'string',
+              title: 'mongoId',
+            },
+            amount: {
+              type: 'number',
+            },
+            balance: {
+              type: 'number',
+              description: 'Read Only',
+            },
+            memo: {
+              type: 'string',
+            },
+          },
+          required: ['account', 'linkedToResourceId', 'linkedToResourceType'],
+        },
+      },
+      payFromAccount: {
+        type: 'string',
+      },
+      paymentMethod: {
+        type: 'string',
+        enum: ['CASH', 'CHECK', 'WIRE', 'CREDIT_CARD', 'CASHIERS_CHECK', 'MONEY_ORDER', 'OTHER', 'EPAY'],
+      },
+      id: {
+        type: 'string',
+        title: 'mongoId',
+      },
+      batch: {
+        type: 'string',
+      },
+      memo: {
+        type: 'string',
+      },
+      payToResourceId: {
+        type: 'string',
+      },
+      payToResourceType: {
+        type: 'string',
+      },
+      reference: {
+        type: 'string',
+        description: 'If not provided will be generated automatically by the server.',
+      },
+      totalAmount: {
+        type: 'number',
+        description: 'Read Only. Calculated as sum of lines.amount.',
+      },
+    },
+  },
+};
+
+export const handler = (client: Doorloop, args: Record<string, unknown> | undefined) => {
+  const { expenseId, ...body } = args as any;
+  return client.expenses.update(expenseId, body);
+};
+
+export default { metadata, tool, handler };
