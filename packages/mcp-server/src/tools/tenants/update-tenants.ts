@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'tenants',
   operation: 'write',
   tags: [],
+  httpMethod: 'put',
+  httpPath: '/tenants/{tenantId}',
+  operationId: 'put-tenant',
 };
 
 export const tool: Tool = {

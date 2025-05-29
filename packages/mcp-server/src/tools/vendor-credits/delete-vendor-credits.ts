@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'vendor_credits',
   operation: 'write',
   tags: [],
+  httpMethod: 'delete',
+  httpPath: '/vendor-credits/{vendorCreditId}',
+  operationId: 'delete-vendor-Credit',
 };
 
 export const tool: Tool = {

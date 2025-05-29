@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'units',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/units',
+  operationId: 'get-units',
 };
 
 export const tool: Tool = {

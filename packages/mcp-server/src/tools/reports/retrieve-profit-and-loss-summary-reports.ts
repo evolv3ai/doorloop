@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'reports',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/reports/profit-and-loss-summary',
+  operationId: 'get-reports-profit-and-loss',
 };
 
 export const tool: Tool = {

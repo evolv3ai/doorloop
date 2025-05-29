@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'lease_payments',
   operation: 'write',
   tags: [],
+  httpMethod: 'delete',
+  httpPath: '/lease-payments/{leasePaymentId}',
+  operationId: 'delete-lease-payment',
 };
 
 export const tool: Tool = {
