@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'communications',
   operation: 'write',
   tags: [],
+  httpMethod: 'put',
+  httpPath: '/communications/{communicationId}',
+  operationId: 'put-communication',
 };
 
 export const tool: Tool = {

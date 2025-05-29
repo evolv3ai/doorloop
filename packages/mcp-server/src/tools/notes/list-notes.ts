@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'notes',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/notes',
+  operationId: 'get-notes',
 };
 
 export const tool: Tool = {

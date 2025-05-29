@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'lease_payments',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/lease-payments',
+  operationId: 'post-lease-payment',
 };
 
 export const tool: Tool = {

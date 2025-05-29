@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'vendor_credits',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/vendor-credits/{vendorCreditId}',
+  operationId: 'get-vendor-credit',
 };
 
 export const tool: Tool = {

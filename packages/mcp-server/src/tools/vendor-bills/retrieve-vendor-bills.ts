@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'vendor_bills',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/vendor-bills/{vendorBillId}',
+  operationId: 'get-vendor-bill',
 };
 
 export const tool: Tool = {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'lease_reversed_payments',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/lease-reversed-payments/{leaseReversedPaymentId}',
+  operationId: 'get-lease-reversed-payment',
 };
 
 export const tool: Tool = {

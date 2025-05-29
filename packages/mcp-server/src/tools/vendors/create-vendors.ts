@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'vendors',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/vendors',
+  operationId: 'post-vendor',
 };
 
 export const tool: Tool = {
