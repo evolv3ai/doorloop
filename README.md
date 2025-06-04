@@ -29,13 +29,9 @@ const client = new Doorloop({
   apiKey: process.env['DOORLOOP_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const user = await client.users.retrieve('userId');
+const user = await client.users.retrieve('userId');
 
-  console.log(user.id);
-}
-
-main();
+console.log(user.id);
 ```
 
 ### Request & Response types
@@ -50,11 +46,7 @@ const client = new Doorloop({
   apiKey: process.env['DOORLOOP_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const user: Doorloop.UserRetrieveResponse = await client.users.retrieve('userId');
-}
-
-main();
+const user: Doorloop.UserRetrieveResponse = await client.users.retrieve('userId');
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -67,19 +59,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const user = await client.users.retrieve('userId').catch(async (err) => {
-    if (err instanceof Doorloop.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const user = await client.users.retrieve('userId').catch(async (err) => {
+  if (err instanceof Doorloop.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
