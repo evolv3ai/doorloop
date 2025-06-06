@@ -1,5 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { asTextContentResult } from 'doorloop-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { Metadata } from '../';
 import Doorloop from 'doorloop';
@@ -27,9 +29,9 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Doorloop, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {
   const { tenantId, ...body } = args as any;
-  return client.tenants.retrieve(tenantId);
+  return asTextContentResult(await client.tenants.retrieve(tenantId));
 };
 
 export default { metadata, tool, handler };
