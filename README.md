@@ -1,6 +1,6 @@
 # Doorloop TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/doorloop.svg)](https://npmjs.org/package/doorloop) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/doorloop)
+[![NPM version](<https://img.shields.io/npm/v/doorloop.svg?label=npm%20(stable)>)](https://npmjs.org/package/doorloop) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/doorloop)
 
 This library provides convenient access to the Doorloop REST API from server-side TypeScript or JavaScript.
 
