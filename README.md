@@ -15,7 +15,7 @@ npm install git+ssh://git@github.com:evolv3ai/doorloop.git
 ```
 
 > [!NOTE]
-> Once this package is [published to npm](https://app.stainless.com/docs/guides/publish), this will become: `npm install doorloop`
+> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npm install doorloop`
 
 ## Usage
 
