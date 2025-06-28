@@ -30,8 +30,8 @@ export const tool: Tool = {
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {
   const { noteId, ...body } = args as any;
-  await client.notes.retrieve(noteId);
-  return asTextContentResult('Successful tool call');
+  const response = await client.notes.retrieve(noteId).asResponse();
+  return asTextContentResult(await response.text());
 };
 
 export default { metadata, tool, handler };
