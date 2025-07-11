@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'list_tenants',
   description:
-    'Retrieves all Tenants. \nIn DoorLoop there are 2 types of Tenants:\nif (type = LEASE_TENANT): This tenant has been associated with a lease.\nif (type = PROSPECT_TENANT): This tenant has not been associated with a leasa and is considered a "Prospect".',
+    'When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you\'re sure you don\'t need the data.\n\nRetrieves all Tenants. \nIn DoorLoop there are 2 types of Tenants:\nif (type = LEASE_TENANT): This tenant has been associated with a lease.\nif (type = PROSPECT_TENANT): This tenant has not been associated with a leasa and is considered a "Prospect".',
   inputSchema: {
     type: 'object',
     properties: {
