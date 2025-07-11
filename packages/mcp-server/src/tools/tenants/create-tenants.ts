@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'create_tenants',
   description:
-    'Creates a Prospect.\nIn DoorLoop there are 2 types of Tenants:\nif (type = LEASE_TENANT): This tenant has been associated with a lease.\nif (type = PROSPECT_TENANT): This tenant has not been associated with a leasa and is considered a "Prospect".\n\nAll Tenants are created as a PROSPECT_TENANT, and their type changes once they are associated with a lease.',
+    'When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you\'re sure you don\'t need the data.\n\nCreates a Prospect.\nIn DoorLoop there are 2 types of Tenants:\nif (type = LEASE_TENANT): This tenant has been associated with a lease.\nif (type = PROSPECT_TENANT): This tenant has not been associated with a leasa and is considered a "Prospect".\n\nAll Tenants are created as a PROSPECT_TENANT, and their type changes once they are associated with a lease.',
   inputSchema: {
     type: 'object',
     properties: {
