@@ -1,9 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { asTextContentResult } from 'doorloop-mcp/tools/types';
+import { Metadata, asTextContentResult } from 'doorloop-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../';
 import Doorloop from 'doorloop';
 
 export const metadata: Metadata = {
