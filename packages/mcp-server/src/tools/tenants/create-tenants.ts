@@ -62,7 +62,6 @@ export const tool: Tool = {
               type: 'string',
             },
           },
-          required: [],
         },
       },
       emails: {
@@ -100,7 +99,6 @@ export const tool: Tool = {
               type: 'string',
             },
           },
-          required: [],
         },
       },
       fullName: {
@@ -160,7 +158,6 @@ export const tool: Tool = {
               type: 'number',
             },
           },
-          required: [],
         },
       },
       phones: {
@@ -206,7 +203,6 @@ export const tool: Tool = {
             enum: ['ACTIVE', 'INACTIVE', 'INVITED'],
           },
         },
-        required: [],
       },
       primaryAddress: {
         type: 'object',
@@ -234,7 +230,6 @@ export const tool: Tool = {
             type: 'string',
           },
         },
-        required: [],
       },
       prospectInfo: {
         type: 'object',
@@ -280,7 +275,6 @@ export const tool: Tool = {
                   description: 'Reference the Unit Id',
                 },
               },
-              required: [],
             },
           },
           leadSource: {
@@ -321,7 +315,6 @@ export const tool: Tool = {
             ],
           },
         },
-        required: [],
       },
       timezone: {
         type: 'string',
@@ -357,10 +350,10 @@ export const tool: Tool = {
               type: 'integer',
             },
           },
-          required: [],
         },
       },
     },
+    required: ['firstName', 'lastName'],
   },
 };
 
