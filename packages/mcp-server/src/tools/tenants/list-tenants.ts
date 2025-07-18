@@ -47,6 +47,7 @@ export const tool: Tool = {
         description: 'Filter by Unit Id',
       },
     },
+    required: [],
   },
 };
 

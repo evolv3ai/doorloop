@@ -58,6 +58,7 @@ export const tool: Tool = {
         description: 'Filter by Tenant Name / Email',
       },
     },
+    required: [],
   },
 };
 
