@@ -1,18 +1,23 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { Metadata, asTextContentResult } from 'doorloop-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../';
 import Doorloop from 'doorloop';
 
 export const metadata: Metadata = {
   resource: 'tenants',
   operation: 'write',
   tags: [],
+  httpMethod: 'put',
+  httpPath: '/tenants/{tenantId}',
+  operationId: 'put-tenant',
 };
 
 export const tool: Tool = {
   name: 'update_tenants',
-  description: 'Updates a Tenant',
+  description:
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nUpdates a Tenant",
   inputSchema: {
     type: 'object',
     properties: {
@@ -60,7 +65,6 @@ export const tool: Tool = {
               type: 'string',
             },
           },
-          required: [],
         },
       },
       emails: {
@@ -98,7 +102,6 @@ export const tool: Tool = {
               type: 'string',
             },
           },
-          required: [],
         },
       },
       fullName: {
@@ -158,7 +161,6 @@ export const tool: Tool = {
               type: 'number',
             },
           },
-          required: [],
         },
       },
       phones: {
@@ -204,7 +206,6 @@ export const tool: Tool = {
             enum: ['ACTIVE', 'INACTIVE', 'INVITED'],
           },
         },
-        required: [],
       },
       primaryAddress: {
         type: 'object',
@@ -232,7 +233,6 @@ export const tool: Tool = {
             type: 'string',
           },
         },
-        required: [],
       },
       prospectInfo: {
         type: 'object',
@@ -278,7 +278,6 @@ export const tool: Tool = {
                   description: 'Reference the Unit Id',
                 },
               },
-              required: [],
             },
           },
           leadSource: {
@@ -319,7 +318,6 @@ export const tool: Tool = {
             ],
           },
         },
-        required: [],
       },
       timezone: {
         type: 'string',
@@ -355,16 +353,19 @@ export const tool: Tool = {
               type: 'integer',
             },
           },
-          required: [],
         },
       },
     },
+    required: ['tenantId', 'firstName', 'lastName'],
+  },
+  annotations: {
+    idempotentHint: true,
   },
 };
 
-export const handler = (client: Doorloop, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {
   const { tenantId, ...body } = args as any;
-  return client.tenants.update(tenantId, body);
+  return asTextContentResult(await client.tenants.update(tenantId, body));
 };
 
 export default { metadata, tool, handler };

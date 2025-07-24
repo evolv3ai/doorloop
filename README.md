@@ -1,6 +1,6 @@
 # Doorloop TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/doorloop.svg)](https://npmjs.org/package/doorloop) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/doorloop)
+[![NPM version](<https://img.shields.io/npm/v/doorloop.svg?label=npm%20(stable)>)](https://npmjs.org/package/doorloop) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/doorloop)
 
 This library provides convenient access to the Doorloop REST API from server-side TypeScript or JavaScript.
 
@@ -11,11 +11,11 @@ It is generated with [Stainless](https://www.stainless.com/).
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:stainless-sdks/doorloop-typescript.git
+npm install git+ssh://git@github.com:evolv3ai/doorloop.git
 ```
 
 > [!NOTE]
-> Once this package is [published to npm](https://app.stainless.com/docs/guides/publish), this will become: `npm install doorloop`
+> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npm install doorloop`
 
 ## Usage
 
@@ -29,13 +29,9 @@ const client = new Doorloop({
   apiKey: process.env['DOORLOOP_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const user = await client.users.retrieve('userId');
+const user = await client.users.retrieve('userId');
 
-  console.log(user.id);
-}
-
-main();
+console.log(user.id);
 ```
 
 ### Request & Response types
@@ -50,11 +46,7 @@ const client = new Doorloop({
   apiKey: process.env['DOORLOOP_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const user: Doorloop.UserRetrieveResponse = await client.users.retrieve('userId');
-}
-
-main();
+const user: Doorloop.UserRetrieveResponse = await client.users.retrieve('userId');
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -67,19 +59,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const user = await client.users.retrieve('userId').catch(async (err) => {
-    if (err instanceof Doorloop.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const user = await client.users.retrieve('userId').catch(async (err) => {
+  if (err instanceof Doorloop.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
@@ -237,9 +225,8 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.foo.create({
-  foo: 'my_param',
-  bar: 12,
+client.users.retrieve({
+  // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',
 });
@@ -348,7 +335,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/doorloop-typescript/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/evolv3ai/doorloop/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 

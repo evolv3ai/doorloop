@@ -1,19 +1,23 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { Metadata, asTextContentResult } from 'doorloop-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../';
 import Doorloop from 'doorloop';
 
 export const metadata: Metadata = {
   resource: 'leases',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/leases/tenants',
+  operationId: 'get-lease-tenants',
 };
 
 export const tool: Tool = {
   name: 'list_tenants_leases',
   description:
-    'Retrieves a list of all lease tenants, meaning, tenants that have been associated with an active list.\n\nThis endpoint includes additional information related to the lease for each tenant in DoorLoop, with the full Tenant object included as well.\n\nIf a tenant is associated with multiple leases, the tenant will appear in the results here once for each lease it is associated with.',
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nRetrieves a list of all lease tenants, meaning, tenants that have been associated with an active list.\n\nThis endpoint includes additional information related to the lease for each tenant in DoorLoop, with the full Tenant object included as well.\n\nIf a tenant is associated with multiple leases, the tenant will appear in the results here once for each lease it is associated with.",
   inputSchema: {
     type: 'object',
     properties: {
@@ -54,12 +58,16 @@ export const tool: Tool = {
         description: 'Filter by Tenant Name / Email',
       },
     },
+    required: [],
+  },
+  annotations: {
+    readOnlyHint: true,
   },
 };
 
-export const handler = (client: Doorloop, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return client.leases.listTenants(body);
+  return asTextContentResult(await client.leases.listTenants(body));
 };
 
 export default { metadata, tool, handler };

@@ -1,6 +1,6 @@
 {
   "name": "doorloop-mcp",
-  "version": "0.0.1-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "The official MCP Server for the Doorloop API",
   "author": "Doorloop <support@doorloop.com>",
   "types": "dist/index.d.ts",
@@ -8,10 +8,10 @@
   "type": "commonjs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stainless-sdks/doorloop-typescript.git",
+    "url": "git+https://github.com/evolv3ai/doorloop.git",
     "directory": "packages/mcp-server"
   },
-  "homepage": "https://github.com/stainless-sdks/doorloop-typescript/tree/main/packages/mcp-server#readme",
+  "homepage": "https://github.com/evolv3ai/doorloop/tree/main/packages/mcp-server#readme",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "private": false,
@@ -28,10 +28,11 @@
   },
   "dependencies": {
     "doorloop": "file:../../dist/",
-    "@modelcontextprotocol/sdk": "^1.6.1",
+    "@modelcontextprotocol/sdk": "^1.11.5",
+    "jq-web": "https://github.com/stainless-api/jq-web/releases/download/v0.8.2/jq-web.tar.gz",
     "yargs": "^17.7.2",
     "@cloudflare/cabidela": "^0.2.4",
-    "zod": "^3.24.4",
+    "zod": "^3.25.20",
     "zod-to-json-schema": "^3.24.5"
   },
   "bin": {
@@ -49,7 +50,7 @@
     "ts-jest": "^29.1.0",
     "ts-morph": "^19.0.0",
     "ts-node": "^10.5.0",
-    "tsc-multi": "https://github.com/stainless-api/tsc-multi/releases/download/v1.1.4/tsc-multi-1.1.4.tgz",
+    "tsc-multi": "https://github.com/stainless-api/tsc-multi/releases/download/v1.1.8/tsc-multi.tgz",
     "tsconfig-paths": "^4.0.0",
     "typescript": "5.8.3"
   },

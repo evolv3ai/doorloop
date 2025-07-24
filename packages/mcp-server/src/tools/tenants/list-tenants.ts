@@ -1,19 +1,23 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { Metadata, asTextContentResult } from 'doorloop-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../';
 import Doorloop from 'doorloop';
 
 export const metadata: Metadata = {
   resource: 'tenants',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/tenants',
+  operationId: 'get-tenants',
 };
 
 export const tool: Tool = {
   name: 'list_tenants',
   description:
-    'Retrieves all Tenants. \nIn DoorLoop there are 2 types of Tenants:\nif (type = LEASE_TENANT): This tenant has been associated with a lease.\nif (type = PROSPECT_TENANT): This tenant has not been associated with a leasa and is considered a "Prospect".',
+    'When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you\'re sure you don\'t need the data.\n\nRetrieves all Tenants. \nIn DoorLoop there are 2 types of Tenants:\nif (type = LEASE_TENANT): This tenant has been associated with a lease.\nif (type = PROSPECT_TENANT): This tenant has not been associated with a leasa and is considered a "Prospect".',
   inputSchema: {
     type: 'object',
     properties: {
@@ -43,12 +47,16 @@ export const tool: Tool = {
         description: 'Filter by Unit Id',
       },
     },
+    required: [],
+  },
+  annotations: {
+    readOnlyHint: true,
   },
 };
 
-export const handler = (client: Doorloop, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return client.tenants.list(body);
+  return asTextContentResult(await client.tenants.list(body));
 };
 
 export default { metadata, tool, handler };

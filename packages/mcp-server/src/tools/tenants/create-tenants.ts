@@ -1,19 +1,23 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { Metadata, asTextContentResult } from 'doorloop-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../';
 import Doorloop from 'doorloop';
 
 export const metadata: Metadata = {
   resource: 'tenants',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/tenants',
+  operationId: 'post-tenant',
 };
 
 export const tool: Tool = {
   name: 'create_tenants',
   description:
-    'Creates a Prospect.\nIn DoorLoop there are 2 types of Tenants:\nif (type = LEASE_TENANT): This tenant has been associated with a lease.\nif (type = PROSPECT_TENANT): This tenant has not been associated with a leasa and is considered a "Prospect".\n\nAll Tenants are created as a PROSPECT_TENANT, and their type changes once they are associated with a lease.',
+    'When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you\'re sure you don\'t need the data.\n\nCreates a Prospect.\nIn DoorLoop there are 2 types of Tenants:\nif (type = LEASE_TENANT): This tenant has been associated with a lease.\nif (type = PROSPECT_TENANT): This tenant has not been associated with a leasa and is considered a "Prospect".\n\nAll Tenants are created as a PROSPECT_TENANT, and their type changes once they are associated with a lease.',
   inputSchema: {
     type: 'object',
     properties: {
@@ -58,7 +62,6 @@ export const tool: Tool = {
               type: 'string',
             },
           },
-          required: [],
         },
       },
       emails: {
@@ -96,7 +99,6 @@ export const tool: Tool = {
               type: 'string',
             },
           },
-          required: [],
         },
       },
       fullName: {
@@ -156,7 +158,6 @@ export const tool: Tool = {
               type: 'number',
             },
           },
-          required: [],
         },
       },
       phones: {
@@ -202,7 +203,6 @@ export const tool: Tool = {
             enum: ['ACTIVE', 'INACTIVE', 'INVITED'],
           },
         },
-        required: [],
       },
       primaryAddress: {
         type: 'object',
@@ -230,7 +230,6 @@ export const tool: Tool = {
             type: 'string',
           },
         },
-        required: [],
       },
       prospectInfo: {
         type: 'object',
@@ -276,7 +275,6 @@ export const tool: Tool = {
                   description: 'Reference the Unit Id',
                 },
               },
-              required: [],
             },
           },
           leadSource: {
@@ -317,7 +315,6 @@ export const tool: Tool = {
             ],
           },
         },
-        required: [],
       },
       timezone: {
         type: 'string',
@@ -353,16 +350,17 @@ export const tool: Tool = {
               type: 'integer',
             },
           },
-          required: [],
         },
       },
     },
+    required: ['firstName', 'lastName'],
   },
+  annotations: {},
 };
 
-export const handler = (client: Doorloop, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return client.tenants.create(body);
+  return asTextContentResult(await client.tenants.create(body));
 };
 
 export default { metadata, tool, handler };
