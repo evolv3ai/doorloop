@@ -106,6 +106,9 @@ export const tool: Tool = {
     },
     required: ['expenseId', 'date', 'lines', 'payFromAccount', 'paymentMethod'],
   },
+  annotations: {
+    idempotentHint: true,
+  },
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

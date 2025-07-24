@@ -223,6 +223,7 @@ export const tool: Tool = {
     },
     required: ['active', 'firstName', 'lastName'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

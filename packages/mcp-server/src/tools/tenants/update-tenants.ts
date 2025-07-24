@@ -358,6 +358,9 @@ export const tool: Tool = {
     },
     required: ['tenantId', 'firstName', 'lastName'],
   },
+  annotations: {
+    idempotentHint: true,
+  },
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

@@ -84,6 +84,9 @@ export const tool: Tool = {
       'paymentMethod',
     ],
   },
+  annotations: {
+    idempotentHint: true,
+  },
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

@@ -102,6 +102,7 @@ export const tool: Tool = {
     },
     required: ['file', 'linkedResource', 'name'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

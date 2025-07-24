@@ -355,6 +355,7 @@ export const tool: Tool = {
     },
     required: ['firstName', 'lastName'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

@@ -80,6 +80,9 @@ export const tool: Tool = {
     },
     required: ['leaseChargeId', 'date', 'lease', 'lines'],
   },
+  annotations: {
+    idempotentHint: true,
+  },
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {
