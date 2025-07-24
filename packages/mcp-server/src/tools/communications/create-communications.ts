@@ -178,6 +178,7 @@ export const tool: Tool = {
     },
     required: ['from', 'sentAt', 'status', 'subject', 'type'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

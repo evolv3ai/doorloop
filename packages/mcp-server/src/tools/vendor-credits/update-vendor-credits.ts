@@ -105,6 +105,9 @@ export const tool: Tool = {
     },
     required: ['vendorCreditId', 'date', 'dueDate', 'lines', 'vendor'],
   },
+  annotations: {
+    idempotentHint: true,
+  },
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

@@ -34,6 +34,9 @@ export const tool: Tool = {
     },
     required: ['portfolioId'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

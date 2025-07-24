@@ -34,6 +34,9 @@ export const tool: Tool = {
     },
     required: ['ownerId'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

@@ -138,6 +138,9 @@ export const tool: Tool = {
     },
     required: ['taskId', 'status', 'subject', 'type'],
   },
+  annotations: {
+    idempotentHint: true,
+  },
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

@@ -198,6 +198,9 @@ export const tool: Tool = {
     },
     required: ['ownerId', 'active', 'firstName', 'lastName'],
   },
+  annotations: {
+    idempotentHint: true,
+  },
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

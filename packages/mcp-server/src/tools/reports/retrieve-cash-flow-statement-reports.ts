@@ -56,6 +56,9 @@ export const tool: Tool = {
     },
     required: ['filter_accountingMethod'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {

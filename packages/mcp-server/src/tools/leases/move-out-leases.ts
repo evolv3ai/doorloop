@@ -56,6 +56,7 @@ export const tool: Tool = {
     },
     required: ['leaseId', 'movedOutAt', 'portalEnabled', 'tenants'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Doorloop, args: Record<string, unknown> | undefined) => {
